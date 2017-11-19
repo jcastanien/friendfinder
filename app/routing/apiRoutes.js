@@ -7,7 +7,7 @@
 module.exports = function(app) {
 
 // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
-var tableData = require("../data/friends")
+var userData = require("../data/friends")
 
 app.get("/api/friends", function(req, res) {
     res.json(friends);
@@ -18,12 +18,28 @@ app.get("/api/friends", function(req, res) {
 
 app.post("/api/friends", function(req, res) {
 
-    // logic goes here
+  userData.push(req.body);
 
-    if (tableData.length < 5) {
-      tableData.push(req.body);
-      res.json(true);
-    }
-  });
 
+//if(sum )  --need to finish
+
+for(var i = 0; i <userData.length; i++){
+  scores = userData[i].scores;
+
+  var sum = scores.reduce(add, 0);
+  function add(a, b) {
+    return a + b;
+  }
+  console.log("sum results " + sum)
+ //console.log("userdata scores VALUE i " + scores);
 }
+//console.log("userdata scores " + userData[0].scores);
+
+
+
+
+ 
+
+
+    });
+  };
